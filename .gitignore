@@ -1,0 +1,34 @@
+# Python Virtual Environments & Cache
+.venv
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+
+# ROS 2 Colcon Build Artifacts
+build/
+install/
+log/
+
+# Large Datasets and Archives
+data/raw/
+*.zip
+*.tar.gz
+*.mat
+
+# Runtime Databases & Logs
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Editor & System Artifacts
+.DS_Store
+.vscode/
+*.swp
+*.bak
+*.backup
+*~

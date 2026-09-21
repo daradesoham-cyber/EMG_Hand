@@ -1,0 +1,13 @@
+{
+  "dataset_to_model": {
+    "1": "PINCH",
+    "5": "FIST",
+    "9": "OPEN"
+  },
+  "model_index_to_gesture": {
+    "0": "PINCH",
+    "1": "FIST",
+    "2": "OPEN"
+  },
+  "rest_strategy": "RMS inactivity threshold; REST is not a dataset class"
+}

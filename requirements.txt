@@ -1,0 +1,10 @@
+# Core Scientific & ML Libraries
+numpy>=1.22.0
+scipy>=1.9.0
+matplotlib>=3.5.0
+
+# Optional: TensorFlow / Keras (only needed if retraining or loading .keras model directly)
+# tensorflow>=2.10.0
+
+# Build & Packaging
+setuptools>=58.2.0

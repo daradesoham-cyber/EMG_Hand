@@ -1,0 +1,21 @@
+{
+  "target_fs": 1000,
+  "window_samples": 400,
+  "channels_1based": [
+    12,
+    11,
+    7,
+    2
+  ],
+  "bandpass_hz": [
+    20,
+    450
+  ],
+  "model_classes": [
+    "PINCH",
+    "FIST",
+    "OPEN"
+  ],
+  "rest_requires_live_sensor_calibration": true,
+  "model_path": "/content/drive/MyDrive/EMG_Hand_Final/model/emg_hand_cnn_best.keras"
+}

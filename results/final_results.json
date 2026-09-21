@@ -1,0 +1,22 @@
+{
+  "model": "Compact 1D CNN",
+  "dataset_subjects": 91,
+  "selected_channels_1based": [
+    12,
+    11,
+    7,
+    2
+  ],
+  "sampling_rate_hz": 1000,
+  "window_ms": 400,
+  "classes": [
+    "PINCH",
+    "FIST",
+    "OPEN"
+  ],
+  "accuracy": 0.5104938271604939,
+  "balanced_accuracy": 0.5104938271604939,
+  "macro_f1": 0.5067281671101548,
+  "seed": 42,
+  "rest_strategy": "RMS inactivity threshold; no REST class in source dataset"
+}
