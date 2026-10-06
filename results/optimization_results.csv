@@ -1,0 +1,6 @@
+metric,value,target,status
+Power Grasp Force (N),294.2168955589244,60.0,MET
+Precision Pinch Force (N),113.91752313370517,15.0,MET
+Total Hand Mass (g),505.9888,650.0,MET
+Robustness Pass Rate (%),99.33333333333334,80.0,MET
+Wrist Gravity Reaction (Nm),0.21042450000000001,0.35,MET

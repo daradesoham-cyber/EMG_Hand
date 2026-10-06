@@ -1,0 +1,47 @@
+{
+  "provenance": {
+    "source": "Acome et al. (2018) Science, Kellaris et al. (2018), Artmuscl HASEL actuator specs",
+    "classification": "LITERATURE_REFERENCE",
+    "description": "Baseline electrohydraulic pouch stack actuators (Hydraulically Amplified Self-healing Electrostatic)"
+  },
+  "primary_digits_hasel": {
+    "target_fmax_N": 375.0,
+    "target_max_stroke_m": 0.0401,
+    "resting_length_m": 0.120,
+    "width_m": 0.035,
+    "thickness_layer_m": 0.0018,
+    "nominal_layers": 8,
+    "density_kg_per_m3": 1100.0,
+    "max_voltage_kV": 8.0,
+    "phenomenological_model": "quadratic_voltage_linear_force_stroke_decay",
+    "classification": "DESIGN_TARGET"
+  },
+  "thumb_flexion_hasel": {
+    "target_fmax_N": 100.0,
+    "target_max_stroke_m": 0.0280,
+    "resting_length_m": 0.090,
+    "width_m": 0.025,
+    "thickness_layer_m": 0.0018,
+    "nominal_layers": 6,
+    "density_kg_per_m3": 1100.0,
+    "max_voltage_kV": 8.0,
+    "classification": "DESIGN_TARGET"
+  },
+  "thumb_opposition_hasel": {
+    "target_fmax_N": 100.0,
+    "target_max_stroke_m": 0.0280,
+    "resting_length_m": 0.090,
+    "width_m": 0.025,
+    "thickness_layer_m": 0.0018,
+    "nominal_layers": 6,
+    "density_kg_per_m3": 1100.0,
+    "max_voltage_kV": 8.0,
+    "classification": "DESIGN_TARGET"
+  },
+  "physical_validation_status": {
+    "dielectric_breakdown": "REQUIRES_PHYSICAL_VALIDATION",
+    "electrohydraulic_fluid_dynamics": "REQUIRES_PHYSICAL_VALIDATION",
+    "viscoelastic_creep_and_fatigue": "REQUIRES_PHYSICAL_VALIDATION",
+    "pouch_burst_pressure": "REQUIRES_PHYSICAL_VALIDATION"
+  }
+}

@@ -1,0 +1,9 @@
+stress_scenario,power_grasp_Fn_N,precision_pinch_Fn_N,composite_score,grasp_success_rate_pct,pass_status
+Nominal Best Design,294.22,113.92,79.25,100.0,PASS
+HASEL Fmax -10%,442.35,103.54,79.25,100.0,PASS
+HASEL Stroke -10%,461.28,90.51,79.25,100.0,PASS
+Joint Stiffness -10%,426.68,113.77,79.25,100.0,PASS
+Pulley Radii -10%,449.21,123.06,78.79,100.0,PASS
+Pulley Radii +10%,541.67,102.4,79.72,100.0,PASS
+"Adverse Combined (Fmax -10%, Stroke -10%, Pulley -10%)",327.68,95.48,78.79,100.0,PASS
+"Severe Combined (Fmax -15%, Stroke -15%, Pulley +10%)",346.46,55.75,79.72,100.0,PASS

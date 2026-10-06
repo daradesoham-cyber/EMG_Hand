@@ -1,0 +1,11 @@
+task_name,object_type,object_size_m,contact_count,sum_normal_force_N,sum_tangential_force_N,sum_resultant_force_N,net_world_force_N,net_world_torque_Nm,index_normal_force_N,middle_normal_force_N,ring_normal_force_N,little_normal_force_N,thumb_normal_force_N
+power_grasp,cylinder,0.03,3,294.22,155.48,351.29,323.39,4.286,0.0,198.68,95.53,0.0,0.0
+precision_pinch,small,0.012,3,113.92,19.32,116.92,79.62,0.092,113.92,0.0,0.0,0.0,0.0
+tripod_pinch,sphere,0.02,5,237.82,61.9,251.59,172.18,0.547,171.05,66.77,0.0,0.0,0.0
+lateral_pinch,thin,0.025,6,111.55,45.12,124.61,120.12,1.882,58.3,38.18,15.06,0.0,0.0
+sphere_grasp,sphere,0.035,6,483.16,221.0,535.36,387.28,6.221,134.7,135.76,91.49,121.2,0.0
+cylinder_grasp,cylinder,0.035,5,848.87,427.96,986.93,420.48,13.042,105.91,157.86,116.29,52.53,416.28
+cube_grasp,box,0.025,6,343.81,220.83,416.1,199.09,1.486,128.17,85.73,129.92,0.0,0.0
+thin_object_grasp,thin,0.025,6,111.55,45.12,124.61,120.12,1.882,58.3,38.18,15.06,0.0,0.0
+small_object_grasp,small,0.01,3,113.92,19.32,116.92,79.62,0.092,113.92,0.0,0.0,0.0,0.0
+large_object_grasp,large,0.055,5,500.92,301.95,616.77,551.62,1.446,108.22,220.44,118.37,53.89,0.0

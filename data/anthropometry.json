@@ -1,0 +1,84 @@
+{
+  "provenance": {
+    "source": "Buchholz et al. (1992), Grebenstein (2014) Hand Anthropometry References",
+    "classification": "LITERATURE_REFERENCE",
+    "description": "Anthropometric statistical percentiles for human adult hand (50th percentile male/female averaged values in mm and rad)"
+  },
+  "palm": {
+    "length_mm": {
+      "mean": 105.0,
+      "min": 85.0,
+      "max": 125.0,
+      "classification": "LITERATURE_REFERENCE"
+    },
+    "breadth_mm": {
+      "mean": 85.0,
+      "min": 70.0,
+      "max": 100.0,
+      "classification": "LITERATURE_REFERENCE"
+    },
+    "thickness_mm": {
+      "mean": 28.0,
+      "min": 22.0,
+      "max": 35.0,
+      "classification": "LITERATURE_REFERENCE"
+    }
+  },
+  "fingers": {
+    "index": {
+      "proximal_length_mm": 43.0,
+      "middle_length_mm": 25.0,
+      "distal_length_mm": 20.0,
+      "width_proximal_mm": 19.0,
+      "width_distal_mm": 15.0,
+      "mcp_rom_deg": [0.0, 90.0],
+      "pip_rom_deg": [0.0, 110.0],
+      "dip_rom_deg": [0.0, 80.0]
+    },
+    "middle": {
+      "proximal_length_mm": 48.0,
+      "middle_length_mm": 28.0,
+      "distal_length_mm": 22.0,
+      "width_proximal_mm": 20.0,
+      "width_distal_mm": 16.0,
+      "mcp_rom_deg": [0.0, 90.0],
+      "pip_rom_deg": [0.0, 110.0],
+      "dip_rom_deg": [0.0, 80.0]
+    },
+    "ring": {
+      "proximal_length_mm": 42.0,
+      "middle_length_mm": 26.0,
+      "distal_length_mm": 20.0,
+      "width_proximal_mm": 18.0,
+      "width_distal_mm": 14.5,
+      "mcp_rom_deg": [0.0, 90.0],
+      "pip_rom_deg": [0.0, 110.0],
+      "dip_rom_deg": [0.0, 80.0]
+    },
+    "little": {
+      "proximal_length_mm": 34.0,
+      "middle_length_mm": 19.0,
+      "distal_length_mm": 17.0,
+      "width_proximal_mm": 16.0,
+      "width_distal_mm": 13.0,
+      "mcp_rom_deg": [0.0, 90.0],
+      "pip_rom_deg": [0.0, 110.0],
+      "dip_rom_deg": [0.0, 80.0]
+    }
+  },
+  "thumb": {
+    "metacarpal_length_mm": 46.0,
+    "proximal_length_mm": 32.0,
+    "distal_length_mm": 22.0,
+    "width_mm": 21.0,
+    "cmc_opposition_rom_deg": [0.0, 60.0],
+    "mp_flexion_rom_deg": [0.0, 60.0],
+    "ip_flexion_rom_deg": [0.0, 80.0]
+  },
+  "passive_compliance": {
+    "default_joint_stiffness_N_m_per_rad": 0.15,
+    "default_joint_damping_N_m_s_per_rad": 0.02,
+    "material_basis": "TPU / Polyurethane flexure equivalent",
+    "classification": "SIMULATION_ASSUMPTION"
+  }
+}

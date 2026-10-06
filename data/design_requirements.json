@@ -1,0 +1,41 @@
+{
+  "provenance": {
+    "source": "Upper-limb prosthetic benchmark guidelines & MASTER DEVELOPMENT PROMPT specifications",
+    "classification": "DESIGN_TARGET"
+  },
+  "force_targets": {
+    "power_grasp_N": {
+      "target": 60.0,
+      "minimum_acceptable": 35.0,
+      "classification": "DESIGN_TARGET"
+    },
+    "precision_pinch_N": {
+      "target": 15.0,
+      "minimum_acceptable": 8.0,
+      "classification": "DESIGN_TARGET"
+    }
+  },
+  "kinematics": {
+    "digit_mcp_rom_min_deg": 65.0,
+    "digit_pip_rom_min_deg": 75.0,
+    "thumb_opposition_rom_min_deg": 40.0,
+    "finger_tip_contact_min_force_N": 2.0
+  },
+  "mass_and_volume": {
+    "max_hand_mass_kg": 0.650,
+    "target_hand_mass_kg": 0.450,
+    "max_forearm_volume_cm3": 850.0
+  },
+  "tasks": [
+    "power_grasp",
+    "precision_pinch",
+    "tripod_pinch",
+    "lateral_pinch",
+    "sphere_grasp",
+    "cylinder_grasp",
+    "cube_grasp",
+    "thin_object_grasp",
+    "small_object_grasp",
+    "large_object_grasp"
+  ]
+}

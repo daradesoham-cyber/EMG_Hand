@@ -1,0 +1,363 @@
+{
+  "palm": {
+    "length": 0.095,
+    "width": 0.085,
+    "thickness": 0.026,
+    "finger_spacing": 0.019,
+    "mass": 0.21
+  },
+  "fingers": {
+    "index": {
+      "proximal_len": 0.043,
+      "middle_len": 0.025,
+      "distal_len": 0.02,
+      "width_proximal": 0.019,
+      "width_distal": 0.015,
+      "mcp_stiffness": 0.15,
+      "mcp_damping": 0.02,
+      "pip_stiffness": 0.15,
+      "pip_damping": 0.02,
+      "dip_stiffness": 0.15,
+      "dip_damping": 0.02,
+      "mcp_range": [
+        0.0,
+        1.5708
+      ],
+      "pip_range": [
+        0.0,
+        1.9198
+      ],
+      "dip_range": [
+        0.0,
+        1.3963
+      ]
+    },
+    "middle": {
+      "proximal_len": 0.048,
+      "middle_len": 0.028,
+      "distal_len": 0.022,
+      "width_proximal": 0.02,
+      "width_distal": 0.016,
+      "mcp_stiffness": 0.15,
+      "mcp_damping": 0.02,
+      "pip_stiffness": 0.15,
+      "pip_damping": 0.02,
+      "dip_stiffness": 0.15,
+      "dip_damping": 0.02,
+      "mcp_range": [
+        0.0,
+        1.5708
+      ],
+      "pip_range": [
+        0.0,
+        1.9198
+      ],
+      "dip_range": [
+        0.0,
+        1.3963
+      ]
+    },
+    "ring": {
+      "proximal_len": 0.042,
+      "middle_len": 0.026,
+      "distal_len": 0.02,
+      "width_proximal": 0.018,
+      "width_distal": 0.0145,
+      "mcp_stiffness": 0.15,
+      "mcp_damping": 0.02,
+      "pip_stiffness": 0.15,
+      "pip_damping": 0.02,
+      "dip_stiffness": 0.15,
+      "dip_damping": 0.02,
+      "mcp_range": [
+        0.0,
+        1.5708
+      ],
+      "pip_range": [
+        0.0,
+        1.9198
+      ],
+      "dip_range": [
+        0.0,
+        1.3963
+      ]
+    },
+    "little": {
+      "proximal_len": 0.034,
+      "middle_len": 0.019,
+      "distal_len": 0.017,
+      "width_proximal": 0.016,
+      "width_distal": 0.013,
+      "mcp_stiffness": 0.15,
+      "mcp_damping": 0.02,
+      "pip_stiffness": 0.15,
+      "pip_damping": 0.02,
+      "dip_stiffness": 0.15,
+      "dip_damping": 0.02,
+      "mcp_range": [
+        0.0,
+        1.5708
+      ],
+      "pip_range": [
+        0.0,
+        1.9198
+      ],
+      "dip_range": [
+        0.0,
+        1.3963
+      ]
+    }
+  },
+  "thumb": {
+    "metacarpal_len": 0.046,
+    "proximal_len": 0.032,
+    "distal_len": 0.022,
+    "width": 0.021,
+    "cmc_pos": [
+      0.022,
+      -0.028,
+      -0.015
+    ],
+    "cmc_axis_euler": [
+      0.65,
+      0.45,
+      0.35
+    ],
+    "cmc_stiffness": 0.18,
+    "cmc_damping": 0.025,
+    "mp_stiffness": 0.15,
+    "mp_damping": 0.02,
+    "ip_stiffness": 0.15,
+    "ip_damping": 0.02,
+    "cmc_range": [
+      0.0,
+      1.0472
+    ],
+    "flex_range": [
+      0.0,
+      1.5708
+    ]
+  },
+  "pulleys": {
+    "index": {
+      "mcp_radius": 0.013,
+      "pip_radius": 0.009,
+      "dip_radius": 0.006,
+      "eccentric_cam_offset": 0.0,
+      "tendon_moment_arm_bias": 1.0
+    },
+    "middle": {
+      "mcp_radius": 0.013,
+      "pip_radius": 0.009,
+      "dip_radius": 0.006,
+      "eccentric_cam_offset": 0.0,
+      "tendon_moment_arm_bias": 1.0
+    },
+    "ring": {
+      "mcp_radius": 0.013,
+      "pip_radius": 0.009,
+      "dip_radius": 0.006,
+      "eccentric_cam_offset": 0.0,
+      "tendon_moment_arm_bias": 1.0
+    },
+    "little": {
+      "mcp_radius": 0.01014,
+      "pip_radius": 0.007019999999999999,
+      "dip_radius": 0.00468,
+      "eccentric_cam_offset": 0.0,
+      "tendon_moment_arm_bias": 1.0
+    },
+    "thumb_flex": {
+      "mcp_radius": 0.009,
+      "pip_radius": 0.007,
+      "dip_radius": 0.006,
+      "eccentric_cam_offset": 0.0,
+      "tendon_moment_arm_bias": 1.0
+    },
+    "thumb_opp": {
+      "mcp_radius": 0.015,
+      "pip_radius": 0.0,
+      "dip_radius": 0.0,
+      "eccentric_cam_offset": 0.0,
+      "tendon_moment_arm_bias": 1.0
+    }
+  },
+  "actuators": {
+    "index_hasel": {
+      "name": "index_hasel",
+      "fmax": 375.0,
+      "max_stroke": 0.0401,
+      "resting_length": 0.12,
+      "width": 0.028,
+      "thickness_per_layer": 0.0018,
+      "num_layers": 6,
+      "density": 1100.0,
+      "position": [
+        0.018,
+        0.0,
+        -0.15
+      ],
+      "orientation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "classification": "DESIGN_TARGET"
+    },
+    "middle_hasel": {
+      "name": "middle_hasel",
+      "fmax": 375.0,
+      "max_stroke": 0.0401,
+      "resting_length": 0.12,
+      "width": 0.028,
+      "thickness_per_layer": 0.0018,
+      "num_layers": 6,
+      "density": 1100.0,
+      "position": [
+        0.006,
+        0.0,
+        -0.15
+      ],
+      "orientation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "classification": "DESIGN_TARGET"
+    },
+    "ring_hasel": {
+      "name": "ring_hasel",
+      "fmax": 375.0,
+      "max_stroke": 0.0401,
+      "resting_length": 0.12,
+      "width": 0.028,
+      "thickness_per_layer": 0.0018,
+      "num_layers": 6,
+      "density": 1100.0,
+      "position": [
+        -0.006,
+        0.0,
+        -0.15
+      ],
+      "orientation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "classification": "DESIGN_TARGET"
+    },
+    "little_hasel": {
+      "name": "little_hasel",
+      "fmax": 375.0,
+      "max_stroke": 0.0401,
+      "resting_length": 0.12,
+      "width": 0.028,
+      "thickness_per_layer": 0.0018,
+      "num_layers": 6,
+      "density": 1100.0,
+      "position": [
+        -0.018,
+        0.0,
+        -0.15
+      ],
+      "orientation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "classification": "DESIGN_TARGET"
+    },
+    "thumb_flex_hasel": {
+      "name": "thumb_flex_hasel",
+      "fmax": 100.0,
+      "max_stroke": 0.028,
+      "resting_length": 0.09,
+      "width": 0.024,
+      "thickness_per_layer": 0.0018,
+      "num_layers": 6,
+      "density": 1100.0,
+      "position": [
+        0.025,
+        0.012,
+        -0.12
+      ],
+      "orientation": [
+        0.1,
+        0.2,
+        0.0
+      ],
+      "classification": "DESIGN_TARGET"
+    },
+    "thumb_opp_hasel": {
+      "name": "thumb_opp_hasel",
+      "fmax": 100.0,
+      "max_stroke": 0.028,
+      "resting_length": 0.09,
+      "width": 0.024,
+      "thickness_per_layer": 0.0018,
+      "num_layers": 6,
+      "density": 1100.0,
+      "position": [
+        0.03,
+        -0.012,
+        -0.12
+      ],
+      "orientation": [
+        -0.1,
+        0.3,
+        0.2
+      ],
+      "classification": "DESIGN_TARGET"
+    }
+  },
+  "wrist": {
+    "wrist_flexion_range": [
+      -0.7854,
+      0.7854
+    ],
+    "wrist_deviation_range": [
+      -0.349,
+      0.349
+    ],
+    "forearm_length": 0.22,
+    "forearm_cross_section_area": 0.0055,
+    "forearm_max_volume": 0.0012
+  },
+  "placement_category": "forearm",
+  "measured_performance": {
+    "overall_score": 79.2529989372399,
+    "power_grasp_force_N": 294.2168955589244,
+    "precision_pinch_force_N": 113.91752313370517,
+    "grasp_success_rate": 1.0,
+    "total_hand_mass_g": 505.9888,
+    "total_hasel_mass_g": 210.9888,
+    "total_hasel_volume_cm3": 191.80800000000002,
+    "wrist_gravity_torque_Nm": 0.21042450000000001,
+    "robustness_pass_rate": 0.9933333333333334,
+    "transmission_efficiencies": {
+      "index": 0.3181818181818181,
+      "middle": 0.2857142857142857,
+      "ring": 0.3181818181818181,
+      "little": 0.31199999999999994,
+      "thumb_flex": 0.2962962962962963,
+      "thumb_opp": 0.32608695652173914
+    },
+    "joint_rom_deg": {
+      "index_mcp": 83.78292255878802,
+      "index_pip": 100.82440070853964,
+      "index_dip": 81.77095837924531,
+      "middle_mcp": 81.93684648047149,
+      "middle_pip": 107.48443764696923,
+      "middle_dip": 82.17813341320159,
+      "ring_mcp": 82.26354224308396,
+      "ring_pip": 100.34500058577994,
+      "ring_dip": 81.75857159341938,
+      "little_mcp": 88.34330915668579,
+      "little_pip": 84.1487815611194,
+      "little_dip": 81.03977849083095,
+      "thumb_cmc_opp": 61.13301295629421,
+      "thumb_mp_flex": -0.3336597416886101,
+      "thumb_ip_flex": 72.74434966140677
+    }
+  }
+}

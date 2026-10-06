@@ -1,0 +1,233 @@
+<mujoco model="hasel_biomechatronic_hand">
+  <compiler angle="radian" coordinate="local" autolimits="true"/>
+  <option timestep="0.001" iterations="60" solver="Newton" gravity="0 0 0"/>
+  <default>
+    <joint limited="true" armature="0.002" damping="0.02" frictionloss="0.01"/>
+    <geom friction="1.8 0.01 0.0002" density="1100" solref="0.004 1" solimp="0.9 0.95 0.001"/>
+    <site size="0.003" rgba="1 0.2 0.2 0.8"/>
+  </default>
+  <contact>
+    <!-- Exclude adjacent proximal-to-palm contacts and adjacent base bones -->
+    <exclude body1="palm" body2="index_proximal"/>
+    <exclude body1="palm" body2="middle_proximal"/>
+    <exclude body1="palm" body2="ring_proximal"/>
+    <exclude body1="palm" body2="little_proximal"/>
+    <exclude body1="palm" body2="thumb_metacarpal"/>
+    <exclude body1="forearm" body2="thumb_metacarpal"/>
+    <exclude body1="index_proximal" body2="middle_proximal"/>
+    <exclude body1="middle_proximal" body2="ring_proximal"/>
+    <exclude body1="ring_proximal" body2="little_proximal"/>
+  </contact>
+  <asset>
+    <material name="palm_mat" rgba="0.25 0.28 0.32 1.0" specular="0.3" shininess="0.5"/>
+    <material name="finger_mat" rgba="0.75 0.78 0.82 1.0" specular="0.4" shininess="0.5"/>
+    <material name="pad_mat" rgba="0.88 0.45 0.38 1.0" specular="0.1" roughness="0.8"/>
+    <material name="object_mat" rgba="0.2 0.75 0.4 1.0" specular="0.5" shininess="0.6"/>
+    <material name="hasel_mat" rgba="0.1 0.4 0.8 0.7" specular="0.6"/>
+  </asset>
+  <worldbody>
+    <light directional="true" pos="0 0 1.5" dir="0 0 -1" diffuse="0.8 0.8 0.8"/>
+
+    <!-- Forearm / Base chassis frame -->
+    <body name="forearm" pos="0 0 0">
+      <geom name="forearm_geom" type="box" size="0.045 0.035 0.100" pos="0 0 -0.100" rgba="0.3 0.3 0.35 0.4" contype="0" conaffinity="0"/>
+      <site name="wrist_anchor" pos="0 0 0"/>
+
+      <geom name="index_hasel_body" type="box" size="0.0140 0.0054 0.0600" pos="0.0180 0.0000 -0.1500" material="hasel_mat" contype="0" conaffinity="0"/>
+      <site name="index_hasel_site" pos="0.0180 0.0000 -0.1500"/>
+      <geom name="middle_hasel_body" type="box" size="0.0140 0.0054 0.0600" pos="0.0060 0.0000 -0.1500" material="hasel_mat" contype="0" conaffinity="0"/>
+      <site name="middle_hasel_site" pos="0.0060 0.0000 -0.1500"/>
+      <geom name="ring_hasel_body" type="box" size="0.0140 0.0054 0.0600" pos="-0.0060 0.0000 -0.1500" material="hasel_mat" contype="0" conaffinity="0"/>
+      <site name="ring_hasel_site" pos="-0.0060 0.0000 -0.1500"/>
+      <geom name="little_hasel_body" type="box" size="0.0140 0.0054 0.0600" pos="-0.0180 0.0000 -0.1500" material="hasel_mat" contype="0" conaffinity="0"/>
+      <site name="little_hasel_site" pos="-0.0180 0.0000 -0.1500"/>
+      <geom name="thumb_flex_hasel_body" type="box" size="0.0120 0.0054 0.0450" pos="0.0250 0.0120 -0.1200" material="hasel_mat" contype="0" conaffinity="0"/>
+      <site name="thumb_flex_hasel_site" pos="0.0250 0.0120 -0.1200"/>
+      <geom name="thumb_opp_hasel_body" type="box" size="0.0120 0.0054 0.0450" pos="0.0300 -0.0120 -0.1200" material="hasel_mat" contype="0" conaffinity="0"/>
+      <site name="thumb_opp_hasel_site" pos="0.0300 -0.0120 -0.1200"/>
+
+      <!-- Palm Rigid Chassis -->
+      <body name="palm" pos="0 0 0">
+        <geom name="palm_geom" type="box" size="0.0425 0.0130 0.0475" pos="0 0 0.0475" material="palm_mat" mass="0.210"/>
+        <geom name="palm_pad" type="capsule" size="0.0091" fromto="-0.0297 -0.0130 0.0475 0.0297 -0.0130 0.0475" material="pad_mat"/>
+        <site name="index_palm_exit" pos="0.0285 -0.0130 0.0850"/>
+        <site name="middle_palm_exit" pos="0.0095 -0.0130 0.0880"/>
+        <site name="ring_palm_exit" pos="-0.0095 -0.0130 0.0850"/>
+        <site name="little_palm_exit" pos="-0.0285 -0.0101 0.0810"/>
+        <site name="thumb_opp_exit" pos="0.005 -0.012 0.020"/>
+        <site name="thumb_flex_exit" pos="0.0220 -0.015 -0.0250"/>
+
+        <!-- === INDEX FINGER === -->
+        <body name="index_proximal" pos="0.0285 0.0000 0.0950">
+          <joint name="index_mcp" type="hinge" axis="1 0 0" range="0.0000 1.5708" stiffness="0.1500" damping="0.0200"/>
+          <geom name="index_prox_geom" type="capsule" size="0.0095" fromto="0 0 0 0 0 0.0430" material="finger_mat"/>
+          <site name="index_prox_mid" pos="0 -0.0130 0.0215"/>
+
+          <!-- PIP Joint & Middle Phalanx -->
+          <body name="index_middle" pos="0 0 0.0430">
+            <joint name="index_pip" type="hinge" axis="1 0 0" range="0.0000 1.9198" stiffness="0.1500" damping="0.0200"/>
+            <geom name="index_mid_geom" type="capsule" size="0.0085" fromto="0 0 0 0 0 0.0250" material="finger_mat"/>
+            <site name="index_mid_mid" pos="0 -0.0090 0.0125"/>
+
+            <!-- DIP Joint & Distal Phalanx + Fingertip -->
+            <body name="index_distal" pos="0 0 0.0250">
+              <joint name="index_dip" type="hinge" axis="1 0 0" range="0.0000 1.3963" stiffness="0.1500" damping="0.0200"/>
+              <geom name="index_dist_geom" type="capsule" size="0.0075" fromto="0 0 0 0 0 0.0200" material="finger_mat"/>
+              <geom name="index_tip_pad" type="sphere" size="0.0083" pos="0 -0.0022 0.0200" material="pad_mat"/>
+              <site name="index_dist_anchor" pos="0 -0.0060 0.0120"/>
+              <site name="index_fingertip" pos="0 0 0.0200" size="0.002" rgba="0 1 0 1"/>
+            </body>
+          </body>
+        </body>
+
+        <!-- === MIDDLE FINGER === -->
+        <body name="middle_proximal" pos="0.0095 0.0000 0.0980">
+          <joint name="middle_mcp" type="hinge" axis="1 0 0" range="0.0000 1.5708" stiffness="0.1500" damping="0.0200"/>
+          <geom name="middle_prox_geom" type="capsule" size="0.0100" fromto="0 0 0 0 0 0.0480" material="finger_mat"/>
+          <site name="middle_prox_mid" pos="0 -0.0130 0.0240"/>
+
+          <!-- PIP Joint & Middle Phalanx -->
+          <body name="middle_middle" pos="0 0 0.0480">
+            <joint name="middle_pip" type="hinge" axis="1 0 0" range="0.0000 1.9198" stiffness="0.1500" damping="0.0200"/>
+            <geom name="middle_mid_geom" type="capsule" size="0.0090" fromto="0 0 0 0 0 0.0280" material="finger_mat"/>
+            <site name="middle_mid_mid" pos="0 -0.0090 0.0140"/>
+
+            <!-- DIP Joint & Distal Phalanx + Fingertip -->
+            <body name="middle_distal" pos="0 0 0.0280">
+              <joint name="middle_dip" type="hinge" axis="1 0 0" range="0.0000 1.3963" stiffness="0.1500" damping="0.0200"/>
+              <geom name="middle_dist_geom" type="capsule" size="0.0080" fromto="0 0 0 0 0 0.0220" material="finger_mat"/>
+              <geom name="middle_tip_pad" type="sphere" size="0.0088" pos="0 -0.0024 0.0220" material="pad_mat"/>
+              <site name="middle_dist_anchor" pos="0 -0.0060 0.0132"/>
+              <site name="middle_fingertip" pos="0 0 0.0220" size="0.002" rgba="0 1 0 1"/>
+            </body>
+          </body>
+        </body>
+
+        <!-- === RING FINGER === -->
+        <body name="ring_proximal" pos="-0.0095 0.0000 0.0950">
+          <joint name="ring_mcp" type="hinge" axis="1 0 0" range="0.0000 1.5708" stiffness="0.1500" damping="0.0200"/>
+          <geom name="ring_prox_geom" type="capsule" size="0.0090" fromto="0 0 0 0 0 0.0420" material="finger_mat"/>
+          <site name="ring_prox_mid" pos="0 -0.0130 0.0210"/>
+
+          <!-- PIP Joint & Middle Phalanx -->
+          <body name="ring_middle" pos="0 0 0.0420">
+            <joint name="ring_pip" type="hinge" axis="1 0 0" range="0.0000 1.9198" stiffness="0.1500" damping="0.0200"/>
+            <geom name="ring_mid_geom" type="capsule" size="0.0081" fromto="0 0 0 0 0 0.0260" material="finger_mat"/>
+            <site name="ring_mid_mid" pos="0 -0.0090 0.0130"/>
+
+            <!-- DIP Joint & Distal Phalanx + Fingertip -->
+            <body name="ring_distal" pos="0 0 0.0260">
+              <joint name="ring_dip" type="hinge" axis="1 0 0" range="0.0000 1.3963" stiffness="0.1500" damping="0.0200"/>
+              <geom name="ring_dist_geom" type="capsule" size="0.0073" fromto="0 0 0 0 0 0.0200" material="finger_mat"/>
+              <geom name="ring_tip_pad" type="sphere" size="0.0080" pos="0 -0.0022 0.0200" material="pad_mat"/>
+              <site name="ring_dist_anchor" pos="0 -0.0060 0.0120"/>
+              <site name="ring_fingertip" pos="0 0 0.0200" size="0.002" rgba="0 1 0 1"/>
+            </body>
+          </body>
+        </body>
+
+        <!-- === LITTLE FINGER === -->
+        <body name="little_proximal" pos="-0.0285 0.0000 0.0910">
+          <joint name="little_mcp" type="hinge" axis="1 0 0" range="0.0000 1.5708" stiffness="0.1500" damping="0.0200"/>
+          <geom name="little_prox_geom" type="capsule" size="0.0080" fromto="0 0 0 0 0 0.0340" material="finger_mat"/>
+          <site name="little_prox_mid" pos="0 -0.0101 0.0170"/>
+
+          <!-- PIP Joint & Middle Phalanx -->
+          <body name="little_middle" pos="0 0 0.0340">
+            <joint name="little_pip" type="hinge" axis="1 0 0" range="0.0000 1.9198" stiffness="0.1500" damping="0.0200"/>
+            <geom name="little_mid_geom" type="capsule" size="0.0072" fromto="0 0 0 0 0 0.0190" material="finger_mat"/>
+            <site name="little_mid_mid" pos="0 -0.0070 0.0095"/>
+
+            <!-- DIP Joint & Distal Phalanx + Fingertip -->
+            <body name="little_distal" pos="0 0 0.0190">
+              <joint name="little_dip" type="hinge" axis="1 0 0" range="0.0000 1.3963" stiffness="0.1500" damping="0.0200"/>
+              <geom name="little_dist_geom" type="capsule" size="0.0065" fromto="0 0 0 0 0 0.0170" material="finger_mat"/>
+              <geom name="little_tip_pad" type="sphere" size="0.0072" pos="0 -0.0019 0.0170" material="pad_mat"/>
+              <site name="little_dist_anchor" pos="0 -0.0047 0.0102"/>
+              <site name="little_fingertip" pos="0 0 0.0170" size="0.002" rgba="0 1 0 1"/>
+            </body>
+          </body>
+        </body>
+
+        <!-- === THUMB SUBSYSTEM === -->
+        <body name="thumb_metacarpal" pos="0.0220 -0.0280 -0.0150">
+          <!-- CMC Opposition Joint (Oblique Axis inward rotation) -->
+          <joint name="thumb_cmc_opp" type="hinge" axis="-0.25 0.35 -0.9" range="0.0000 1.0472" stiffness="0.1800" damping="0.0250"/>
+          <geom name="thumb_meta_geom" type="capsule" size="0.0105" fromto="0 0 0 0 -0.030 0.015" material="finger_mat"/>
+          <site name="thumb_opp_anchor" pos="0 -0.025 0.012"/>
+          <site name="thumb_meta_volar" pos="0 -0.010 0.005"/>
+
+          <!-- Thumb Proximal & MP Flexion Joint -->
+          <body name="thumb_proximal" pos="0 -0.030 0.015">
+            <joint name="thumb_mp_flex" type="hinge" axis="1 0 0" range="0.0000 1.5708" stiffness="0.1500" damping="0.0200"/>
+            <geom name="thumb_prox_geom" type="capsule" size="0.0095" fromto="0 0 0 0 0 0.0320" material="finger_mat"/>
+            <site name="thumb_prox_mid" pos="0 -0.0090 0.0160"/>
+
+            <!-- Thumb Distal & IP Flexion Joint -->
+            <body name="thumb_distal" pos="0 0 0.0320">
+              <joint name="thumb_ip_flex" type="hinge" axis="1 0 0" range="0.0000 1.2566" stiffness="0.1500" damping="0.0200"/>
+              <geom name="thumb_dist_geom" type="capsule" size="0.0084" fromto="0 0 0 0 0 0.0220" material="finger_mat"/>
+              <geom name="thumb_tip_pad" type="sphere" size="0.0100" pos="0 -0.0032 0.0220" material="pad_mat"/>
+              <site name="thumb_dist_anchor" pos="0 -0.0070 0.0132"/>
+              <site name="thumb_tip" pos="0 0 0.0220" size="0.002" rgba="0 1 0 1"/>
+            </body>
+          </body>
+        </body>
+      </body> <!-- /palm -->
+    </body> <!-- /forearm -->
+  </worldbody>
+
+  <!-- Primary Tendon Transmission System (6 Independent Channels) -->
+  <tendon>
+    <spatial name="index_flexor" width="0.0015" rgba="0.9 0.6 0.1 1">
+      <site site="index_hasel_site"/>
+      <site site="index_palm_exit"/>
+      <site site="index_prox_mid"/>
+      <site site="index_mid_mid"/>
+      <site site="index_dist_anchor"/>
+    </spatial>
+    <spatial name="middle_flexor" width="0.0015" rgba="0.9 0.6 0.1 1">
+      <site site="middle_hasel_site"/>
+      <site site="middle_palm_exit"/>
+      <site site="middle_prox_mid"/>
+      <site site="middle_mid_mid"/>
+      <site site="middle_dist_anchor"/>
+    </spatial>
+    <spatial name="ring_flexor" width="0.0015" rgba="0.9 0.6 0.1 1">
+      <site site="ring_hasel_site"/>
+      <site site="ring_palm_exit"/>
+      <site site="ring_prox_mid"/>
+      <site site="ring_mid_mid"/>
+      <site site="ring_dist_anchor"/>
+    </spatial>
+    <spatial name="little_flexor" width="0.0015" rgba="0.9 0.6 0.1 1">
+      <site site="little_hasel_site"/>
+      <site site="little_palm_exit"/>
+      <site site="little_prox_mid"/>
+      <site site="little_mid_mid"/>
+      <site site="little_dist_anchor"/>
+    </spatial>
+    <spatial name="thumb_flexor" width="0.0015" rgba="0.9 0.6 0.1 1">
+      <site site="thumb_flex_hasel_site"/>
+      <site site="thumb_flex_exit"/>
+      <site site="thumb_meta_volar"/>
+      <site site="thumb_prox_mid"/>
+      <site site="thumb_dist_anchor"/>
+    </spatial>
+    <spatial name="thumb_opposition" width="0.0015" rgba="0.1 0.7 0.9 1">
+      <site site="thumb_opp_hasel_site"/>
+      <site site="thumb_opp_exit"/>
+      <site site="thumb_opp_anchor"/>
+    </spatial>
+  </tendon>
+
+  <!-- Actuators Driving Tendons (gear="-1" for tensile pulling) -->
+  <actuator>
+    <motor name="index_actuator" tendon="index_flexor" ctrlrange="0 375.0" gear="-1"/>
+    <motor name="middle_actuator" tendon="middle_flexor" ctrlrange="0 375.0" gear="-1"/>
+    <motor name="ring_actuator" tendon="ring_flexor" ctrlrange="0 375.0" gear="-1"/>
+    <motor name="little_actuator" tendon="little_flexor" ctrlrange="0 375.0" gear="-1"/>
+    <motor name="thumb_flex_actuator" tendon="thumb_flexor" ctrlrange="0 100.0" gear="-1"/>
+    <motor name="thumb_opp_actuator" tendon="thumb_opposition" ctrlrange="0 100.0" gear="-1"/>
+  </actuator>
+</mujoco>

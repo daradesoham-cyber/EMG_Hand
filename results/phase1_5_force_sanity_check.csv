@@ -1,0 +1,4 @@
+task_benchmark,object_fixture,total_tendon_tension_N,contact_count,sum_normal_Fn_N,sum_tangential_Ft_N,sum_resultant_Fr_N,net_isometric_reaction_force_N,net_isometric_reaction_torque_Nm,grasp_security_status
+Power Grasp,Static Isometric Target (J_target = 0),1183.76,3,294.22,155.48,351.29,323.39,4.286,SECURE_ISOMETRIC_CONTACT
+Precision Pinch,Static Isometric Target (J_target = 0),174.44,3,113.92,19.32,116.92,79.62,0.092,SECURE_ISOMETRIC_CONTACT
+Cylinder Grasp,Static Isometric Target (J_target = 0),1421.27,5,848.87,427.96,986.93,420.48,13.042,SECURE_ISOMETRIC_CONTACT

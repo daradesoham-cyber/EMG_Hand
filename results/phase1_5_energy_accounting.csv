@@ -1,0 +1,5 @@
+component,energy_Joules,physical_mechanism
+Tendon Input Mechanical Work,34.4384,Integral of tension force and shortening velocity
+Joint Flexure Elastic Potential Energy,1.2113,Reversible strain energy stored in passive TPU living hinges (0.5 * k * theta^2)
+Viscous Damping Dissipation,12.6347,Integrated joint viscous damping work (d * qvel^2 * dt)
+Phalanx Contact & Limit Dissipation,20.5923,Work absorbed by joint stops and distal phalanx pad contact collisions

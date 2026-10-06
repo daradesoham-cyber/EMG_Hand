@@ -1,0 +1,17 @@
+parameter_name,variation,delta_power_force_N,delta_pinch_force_N,delta_composite_score,resulting_power_force_N,resulting_pinch_force_N,resulting_score
+MCP Pulley Radius,-20%,62.7,9.46,-0.29,356.91,123.37,78.97
+MCP Pulley Radius,+20%,140.16,-10.43,0.29,434.37,103.48,79.54
+PIP Pulley Radius,-20%,40.03,8.98,-0.22,334.24,122.9,79.03
+PIP Pulley Radius,+20%,145.04,-9.66,0.22,439.26,104.25,79.47
+DIP Pulley Radius,-20%,41.78,2.68,-0.17,335.99,116.6,79.08
+DIP Pulley Radius,+20%,192.96,-3.81,0.17,487.18,110.11,79.42
+Thumb CMC Radius,-20%,0.0,0.0,-0.16,294.22,113.92,79.09
+Thumb CMC Radius,+20%,0.0,0.0,0.16,294.22,113.92,79.42
+Primary HASEL Fmax,-20%,2.4,-19.59,0.0,296.62,94.33,79.25
+Primary HASEL Fmax,+20%,162.37,22.8,0.0,456.59,136.72,79.25
+Primary HASEL Stroke,-20%,33.42,-50.49,0.0,327.64,63.43,79.25
+Primary HASEL Stroke,+20%,269.64,34.19,0.0,563.85,148.11,79.25
+Joint Flexure Stiffness,-20%,234.28,1.8,0.0,528.49,115.72,79.25
+Joint Flexure Stiffness,+20%,180.61,-3.11,0.0,474.83,110.81,79.25
+Palm Carpal Length,-20%,-31.63,20.99,0.21,262.59,134.91,79.46
+Palm Carpal Length,+20%,181.53,-66.71,-0.71,475.75,47.21,78.54

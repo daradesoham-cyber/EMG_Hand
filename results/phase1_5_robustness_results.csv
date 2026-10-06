@@ -1,0 +1,2 @@
+total_trials,successful_trials,success_rate_pct,wilson_95_ci_lower_pct,wilson_95_ci_upper_pct,mean_power_force_N,std_power_force_N,mean_pinch_force_N,std_pinch_force_N,mean_composite_score,std_composite_score
+1000,1000,100.0,99.62,100.0,409.53,70.67,112.8,13.94,79.25,0.13

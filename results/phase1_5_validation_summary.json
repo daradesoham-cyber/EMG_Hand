@@ -1,0 +1,38 @@
+{
+  "audit_version": "Phase 1.5 Rigorous Validation & Audit",
+  "actuator_assumptions": {
+    "primary_hasel_fmax_N": 375.0,
+    "primary_hasel_max_stroke_mm": 40.099999999999994,
+    "thumb_hasel_fmax_N": 100.0,
+    "thumb_hasel_max_stroke_mm": 28.0,
+    "classification": "DESIGN_TARGET_AND_SIMULATION_ASSUMPTION"
+  },
+  "grasp_benchmark_audit": {
+    "all_tasks_passed": true,
+    "tasks_evaluated": 10,
+    "measurement_basis": "Sum of normal contact forces at hand-object interface via mj_contactForce",
+    "power_grasp_sum_normal_N": 294.22,
+    "precision_pinch_sum_normal_N": 113.92,
+    "power_grasp_net_world_force_N": 323.39,
+    "precision_pinch_net_world_force_N": 79.62
+  },
+  "robustness_audit": {
+    "total_monte_carlo_trials": 1000,
+    "successful_trials": 1000,
+    "success_rate_pct": 100.0,
+    "wilson_95_ci": [
+      99.62,
+      100.0
+    ],
+    "parameter_perturbation_domain": "\u00b110% Fmax, \u00b110% Stroke, \u00b110% Stiffness, \u00b15% Pulley Radii"
+  },
+  "repeatability_audit": {
+    "reps_per_task": 15,
+    "overall_repeatability_pct": 100.0
+  },
+  "wrist_torque_audit": {
+    "forearm_mounted_reaction_torque_Nm": 0.21,
+    "palm_mounted_reaction_torque_Nm": 0.21,
+    "physical_meaning": "Static gravitational reaction torque exerted about carpal joint under horizontal pronated posture"
+  }
+}
