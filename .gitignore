@@ -1,2 +1,17 @@
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.ipynb_checkpoints/
+
+# NinaPro DB8 raw dataset files (large binary assets >2GB, not to be tracked in Git)
+data/ninapro_db8/*.mat
+data/ninapro_db8/
+ml/data/ninapro_db8/
+*.mat
+
+# Environment and local caches
+.env
+.venv
+*.log

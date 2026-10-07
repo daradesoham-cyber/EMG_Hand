@@ -1,0 +1,26 @@
+======================================================================
+Causal Dilated Temporal Convolutional Network (TCN) Architecture Summary
+======================================================================
+Model Class:             CausalTCN
+Input Channels:          16 (sEMG bipolar electrodes)
+Output Channels:         5 (thumb, index, middle, ring, pinky flexion in [0, 1])
+Dilations:               [1, 2, 4, 8]
+Kernel Size:             3
+Convolutions per Block:  2 (standard Bai et al. residual block)
+Dropout:                 0.2
+Activations:             LeakyReLU (negative_slope=0.01) + BatchNorm1d
+Head Activation:         Linear with [0, 1] clipping
+
+Trainable Parameters:    134,693
+Memory Footprint:
+  - FP32:                526.14 kB
+  - FP16:                263.07 kB
+  - INT8 Target:         131.54 kB
+  - Exported ONNX:       47.46 kB
+
+Receptive Field Analysis:
+  - Theoretical RF:      61 samples (30.50 ms at 2 kHz)
+  - Input Window:        256 samples (128.00 ms at 2 kHz)
+  - Window Coverage:     23.8% of input window
+  - Stride:              64 samples (32.00 ms -> 31.25 Hz inference rate)
+======================================================================

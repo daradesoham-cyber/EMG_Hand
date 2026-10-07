@@ -1,0 +1,18 @@
+# Evaluation Configuration for Session 3 Benchmark
+
+checkpoint_path: "ml/models/checkpoints/best_model_6ch.pt"
+config_path: "ml/training/configs/tcn_db8.yaml"
+
+evaluation:
+  test_split: "A3"
+  ema_alpha: 0.20
+  metrics:
+    - mae
+    - rmse
+    - r2
+    - correlation
+    - jitter
+    - cross_correlation_lag
+  latency_benchmark_runs: 500
+  bootstrap_samples: 1000
+  bootstrap_ci: 0.95

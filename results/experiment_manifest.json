@@ -1,0 +1,238 @@
+{
+  "manifest_version": "1.0.0",
+  "project": "Parameterized Six-HASEL Biomechatronic Prosthetic Hand ML Pipeline",
+  "timestamp": "2026-10-07T03:30:00+05:30",
+  "git_commit": "53ee4586e84931080122a7eb2449b1506ae114b7",
+  "environment": {
+    "python_version": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+    "pytorch_version": "2.14.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "gpu_device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "os": "linux"
+  },
+  "dataset": {
+    "name": "NinaPro DB8",
+    "subject": 1,
+    "split": {
+      "train_acquisition": "A1",
+      "train_windows": 35817,
+      "val_acquisition": "A2",
+      "val_windows": 36144,
+      "test_acquisition": "A3",
+      "test_windows": 8264,
+      "test_isolation": "STRICT_HELD_OUT_UNTOUCHED_UNTIL_FROZEN"
+    },
+    "sampling_rate_hz": 2000,
+    "raw_channels": {
+      "semg": 16,
+      "cyberglove": 18
+    }
+  },
+  "preprocessing": {
+    "dc_removal": true,
+    "bandpass_filter": {
+      "type": "4th-order Causal Butterworth IIR",
+      "low_cutoff_hz": 20.0,
+      "high_cutoff_hz": 450.0,
+      "sos_implementation": "scipy.signal.lfilter (Direct Form II Transposed)"
+    },
+    "notch_filter": {
+      "type": "2nd-order Causal IIR Notch",
+      "notch_freq_hz": 50.0,
+      "quality_factor": 30.0
+    },
+    "normalization": {
+      "method": "Z-score (Mean/Std)",
+      "fitted_on": "A1_TRAINING_ONLY",
+      "channel_means": [
+        [
+          8.891924696552422e-11,
+          5.90226201246935e-11,
+          5.352799106739248e-11,
+          7.313344374537678e-11,
+          -2.1315721757120265e-11,
+          1.9686836796178886e-12,
+          6.98553298539295e-11,
+          -2.7964562956950267e-11,
+          5.736508490450376e-10,
+          5.324242782767108e-11,
+          5.86507370448075e-11,
+          -1.054765719210593e-10,
+          -3.2118106785272715e-11,
+          6.646443811986202e-11,
+          -8.402575857324734e-11,
+          -7.183043049252547e-11
+        ]
+      ],
+      "channel_stds": [
+        [
+          3.348879545228556e-05,
+          4.6500768803525716e-05,
+          5.030262855143519e-06,
+          4.326531779952347e-06,
+          1.2873378182121087e-05,
+          4.067724876222201e-05,
+          1.2841570423915982e-05,
+          1.5643714505131356e-05,
+          5.281473568174988e-05,
+          1.289585907215951e-05,
+          5.528079782379791e-06,
+          7.244786502269562e-06,
+          3.854334499919787e-05,
+          2.6413199520902708e-05,
+          1.139786127168918e-05,
+          1.529600194771774e-05
+        ]
+      ]
+    }
+  },
+  "windowing": {
+    "window_samples": 256,
+    "window_duration_ms": 128.0,
+    "stride_samples": 64,
+    "stride_duration_ms": 32.0,
+    "inference_update_rate_hz": 31.25,
+    "causal_alignment": "Last sample t equals window end"
+  },
+  "target_mapping": {
+    "num_outputs": 6,
+    "actuator_channels": [
+      {
+        "channel": 0,
+        "actuator": "H1_Index",
+        "glove_cols": [
+          4,
+          5
+        ],
+        "normalization_range": [
+          -7.67992639541626,
+          92.94893646240234
+        ]
+      },
+      {
+        "channel": 1,
+        "actuator": "H2_Middle",
+        "glove_cols": [
+          6,
+          7
+        ],
+        "normalization_range": [
+          -14.823564529418945,
+          96.59243774414062
+        ]
+      },
+      {
+        "channel": 2,
+        "actuator": "H3_Ring",
+        "glove_cols": [
+          9,
+          10
+        ],
+        "normalization_range": [
+          -14.865962982177734,
+          92.16069030761719
+        ]
+      },
+      {
+        "channel": 3,
+        "actuator": "H4_Little",
+        "glove_cols": [
+          12,
+          13
+        ],
+        "normalization_range": [
+          -6.29640531539917,
+          85.83417510986328
+        ]
+      },
+      {
+        "channel": 4,
+        "actuator": "H5_Thumb_Flexion",
+        "glove_cols": [
+          1,
+          15
+        ],
+        "normalization_range": [
+          -35.907081604003906,
+          61.89784240722656
+        ]
+      },
+      {
+        "channel": 5,
+        "actuator": "H6_Thumb_Opposition",
+        "glove_cols": [
+          0
+        ],
+        "normalization_range": [
+          16.771390914916992,
+          145.35206604003906
+        ]
+      }
+    ],
+    "quantile_min": 1.0,
+    "quantile_max": 99.0,
+    "quantiles_fitted_on": "A1_TRAINING_ONLY"
+  },
+  "model_architecture": {
+    "name": "CausalTCN_Model_C",
+    "in_channels": 16,
+    "hidden_channels": [
+      32,
+      64,
+      64,
+      128,
+      128,
+      128
+    ],
+    "dilations": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "kernel_size": 3,
+    "convs_per_block": 2,
+    "num_residual_blocks": 6,
+    "receptive_field_samples": 253,
+    "receptive_field_ms": 126.5,
+    "receptive_field_buffer_coverage_pct": 98.8,
+    "dropout": 0.2,
+    "activation": "LeakyReLU(negative_slope=0.01)",
+    "normalization_layer": "BatchNorm1d",
+    "regression_head": "Linear(128, 6)",
+    "head_clamping": "[0.0, 1.0]",
+    "total_trainable_parameters": 332966,
+    "memory": {
+      "fp32_weights_kb": 1300.65,
+      "fp16_weights_kb": 650.32,
+      "int8_weights_kb": 325.16,
+      "onnx_graph_file_kb": 65.5,
+      "onnx_data_file_kb": 1300.65
+    }
+  },
+  "training_hyperparameters": {
+    "seed": 42,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "weight_decay": 1e-05,
+    "loss_function": "MAE (L1Loss)",
+    "batch_size": 64,
+    "max_epochs": 35,
+    "early_stopping_patience": 7,
+    "scheduler": "ReduceLROnPlateau(mode=min, factor=0.5, patience=3, min_lr=1e-6)",
+    "best_checkpoint_epoch": 33,
+    "best_val_mae": 0.08631040721524864,
+    "checkpoint_file": "results/best_model_6ch.pt"
+  },
+  "post_processing": {
+    "filter_type": "Causal Exponential Moving Average (EMA)",
+    "equation": "y[t] = alpha * x[t] + (1 - alpha) * y[t-1]",
+    "alpha": 0.2,
+    "selection_basis": "Frozen on Session 2 Validation Grid Search",
+    "effective_time_constant_ms": 143.4,
+    "empirical_test_lag_ms": -16.0
+  }
+}

@@ -1,0 +1,73 @@
+# Experiment Configuration for NinaPro DB8 Causal TCN Hand Kinematic Regression
+
+dataset:
+  name: "ninapro_db8"
+  data_dir: "data/ninapro_db8"
+  subject: 1
+  sessions:
+    train_val: ["A1", "A2"]
+    test_strict: ["A3"]
+  sampling_rate: 2000
+
+features:
+  window_ms: 128
+  stride_ms: 32
+  window_samples: 256
+  stride_samples: 64
+  in_channels: 16
+  num_outputs: 6
+  target_names: ["index", "middle", "ring", "little", "thumb_flexion", "thumb_opposition"]
+  target_glove_cols:
+    index: [4, 5]            # Index MCP (4) + Index PIP (5) -> H1
+    middle: [6, 7]           # Middle MCP (6) + Middle PIP (7) -> H2
+    ring: [9, 10]            # Ring MCP (9) + Ring PIP (10) -> H3
+    little: [12, 13]         # Little MCP (12) + Little PIP (13) -> H4
+    thumb_flexion: [1, 15]   # Thumb MCP (1) + Thumb IP (15) -> H5
+    thumb_opposition: [0]    # Thumb CMC rotation/abduction -> H6
+
+preprocessing:
+  causal_filtering: true
+  dc_removal: true
+  bandpass:
+    enabled: true
+    low_hz: 20.0
+    high_hz: 450.0
+    order: 4
+  notch:
+    enabled: true
+    freq_hz: 50.0
+    quality_factor: 30.0
+  rectification: false # Raw bipolar sEMG passed directly to TCN to learn temporal filters
+  normalization: "train_zscore" # Fit mean/std strictly on training set
+
+model:
+  name: "CausalTCN"
+  in_channels: 16
+  hidden_channels: [32, 64, 64, 128, 128, 128]
+  kernel_size: 3
+  dilations: [1, 2, 4, 8, 16, 32]
+  dropout: 0.2
+  use_batchnorm: true
+  activation: "leaky_relu"
+  negative_slope: 0.01
+  num_outputs: 6
+  head_activation: "linear" # Linear regression head with controlled target scaling
+
+training:
+  seed: 42
+  batch_size: 64
+  epochs: 35
+  learning_rate: 0.0001
+  optimizer: "adam"
+  weight_decay: 0.00001
+  loss: "mae" # L1 loss
+  early_stopping_patience: 8
+  scheduler:
+    type: "reduce_on_plateau"
+    patience: 3
+    factor: 0.5
+    min_lr: 0.000001
+
+evaluation:
+  ema_alpha: 0.20
+  metrics: ["mae", "rmse", "r2", "correlation"]

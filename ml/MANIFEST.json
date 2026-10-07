@@ -1,0 +1,119 @@
+{
+  "manifest_version": "1.1.0",
+  "project": "Parameterized Six-HASEL Biomechatronic Prosthetic Hand ML Pipeline",
+  "timestamp": "2026-10-07T12:00:00+05:30",
+  "freeze_status": "FROZEN_BASELINE",
+  "authoritative_model": "CausalTCN_Model_C",
+  "git": {
+    "target_branch": "ml-handoff",
+    "base_commit": "53ee4586e84931080122a7eb2449b1506ae114b7"
+  },
+  "environment": {
+    "os": "Ubuntu 26.04.1 LTS (Linux 7.0.0-38-generic x86_64)",
+    "python_version": "3.14.4",
+    "pytorch_version": "2.14.0+cu130",
+    "cuda_version": "13.0",
+    "gpu_device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "packages": {
+      "torch": "2.14.0",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "pyyaml": "6.0.3",
+      "scikit-learn": "1.9.1",
+      "onnx": "1.23.2",
+      "onnxruntime": "1.30.0",
+      "matplotlib": "3.10.0"
+    }
+  },
+  "dataset": {
+    "name": "NinaPro Database 8 (DB8)",
+    "subject": 1,
+    "sampling_rate_hz": 2000,
+    "raw_channels": {
+      "semg": 16,
+      "cyberglove": 18
+    },
+    "splits": {
+      "training": {
+        "file": "S1_E1_A1.mat",
+        "duration_s": 1146.3,
+        "frames": 2292526,
+        "sliding_windows": 35817,
+        "sha256": "4f2355061b594baffb474350ce6ede5f852911a8871d547b1adb7cadcfa86d5f"
+      },
+      "validation": {
+        "file": "S1_E1_A2.mat",
+        "duration_s": 1161.9,
+        "frames": 2313470,
+        "sliding_windows": 36144,
+        "sha256": "a431c57ecc6bc8f4689b66e96c2197a696201dfb475ed04794593b3820d6293e"
+      },
+      "held_out_test": {
+        "file": "S1_E1_A3.mat",
+        "duration_s": 264.5,
+        "frames": 529099,
+        "sliding_windows": 8264,
+        "sha256": "772d18763ba3a51e0ae50183b16238c90a92bbe4c6dff7d4745b259e33f515fe"
+      }
+    }
+  },
+  "model": {
+    "name": "CausalTCN_Model_C",
+    "num_residual_blocks": 6,
+    "kernel_size": 3,
+    "convs_per_block": 2,
+    "dilations": [1, 2, 4, 8, 16, 32],
+    "hidden_channels": [32, 64, 64, 128, 128, 128],
+    "receptive_field_samples": 253,
+    "receptive_field_ms": 126.5,
+    "buffer_coverage_pct": 98.828125,
+    "parameters": 332966,
+    "output_dimension": 6,
+    "outputs": [
+      "H1_Index_Flexion",
+      "H2_Middle_Flexion",
+      "H3_Ring_Flexion",
+      "H4_Little_Flexion",
+      "H5_Thumb_Flexion",
+      "H6_Thumb_Opposition"
+    ]
+  },
+  "artifacts": {
+    "authoritative_checkpoint": {
+      "path": "ml/models/checkpoints/best_model_6ch.pt",
+      "sha256": "744fc0a602547c0bd167a2d7f478e1b15f04f2d40ce6e48e457239aa9380cd49",
+      "best_epoch": 33,
+      "best_val_mae": 0.08631040721524864
+    },
+    "onnx_model": {
+      "graph_path": "ml/models/checkpoints/model_causal_tcn.onnx",
+      "graph_sha256": "200c69c163cd6a251d12749c773accc3de933a93d4db932e8512842189eabeb2",
+      "data_path": "ml/models/checkpoints/model_causal_tcn.onnx.data",
+      "data_sha256": "33034d798640e1bece6a3850b69a842a0b939516edeaf3b4f2f748f735791397"
+    },
+    "quantized_int8": {
+      "path": "ml/models/checkpoints/model_quantized_int8.pt",
+      "sha256": "48ba7124809d267a8ee46388ce3eee5fe75ca1f10a5ccbc63b4fff6a3aaff77e"
+    },
+    "session3_evaluation_results": {
+      "path": "ml/results/session3/session3_test_results.json",
+      "raw_mae": 0.08105272054672241,
+      "raw_rmse": 0.1531842201948166,
+      "raw_r2": 0.4132798910140991,
+      "raw_correlation": 0.7287194728851318,
+      "ema_mae": 0.07281046360731125,
+      "ema_rmse": 0.134825199842453,
+      "ema_r2": 0.5300702452659607,
+      "ema_correlation": 0.7717973589897156,
+      "jitter_raw": 0.025061508640646935,
+      "jitter_ema": 0.0066076479852199554,
+      "jitter_reduction_pct": 73.63427685074355
+    },
+    "latency_benchmark": {
+      "host_cpu_mean_ms": 2.2288646697998047,
+      "host_cpu_p95_ms": 2.433649778366089,
+      "realtime_slack_ms": 29.771135330200195
+    }
+  }
+}

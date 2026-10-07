@@ -1,0 +1,8 @@
+Model,Postprocessing,MAE,RMSE,R2,Pearson_r,Jitter,Delay_ms,CPU_Latency_ms,CPU_p95_Latency_ms,Realtime_Feasible_32ms
+"Oracle Persistence Reference (Smoothness Bound, Not Learned Model)",None,0.002296,0.007994,0.998495,0.999247,0.002296,0.0,N/A,N/A,NO (Requires Oracle Sensor Feedback)
+"Linear Regression (16-ch TD Features)",None,0.106468,0.177925,0.216395,0.608619,0.025225,N/A,<0.10,<0.12,YES
+"Simple MLP (2-layer Flattened Buffer)",None,0.119912,0.206737,0.021921,0.395378,0.073001,N/A,0.42,0.49,YES
+"Causal TCN Model C (332k params)",Raw (None),0.081053,0.153184,0.413280,0.728719,0.025062,-133.3,2.23,2.43,YES
+"Causal TCN Model C (332k params, FROZEN BASELINE)","EMA (alpha=0.20)",0.072810,0.134825,0.530070,0.771797,0.006608,-16.0,2.23,2.43,YES
+"Causal GRU Reference (41k params)",Raw (None),0.072596,0.136056,0.534535,0.779410,0.026389,-112.0,57.35,91.04,NO (Exceeds 32 ms Deadline)
+"Causal GRU Reference (41k params)","EMA (alpha=0.20)",0.065267,0.116212,0.648346,0.825774,0.006925,-5.3,57.35,91.04,NO (Exceeds 32 ms Deadline)

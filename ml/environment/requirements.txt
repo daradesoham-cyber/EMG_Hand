@@ -1,0 +1,16 @@
+# Frozen Dependencies for Parameterized Six-HASEL Hand ML Pipeline
+# Platform: Ubuntu 26.04.1 LTS / Linux x86_64
+# Python Version: 3.14.4
+
+torch>=2.1.0
+torchvision>=0.16.0
+numpy>=1.24.0
+scipy>=1.10.0
+pandas>=2.0.0
+pyyaml>=6.0.0
+scikit-learn>=1.2.0
+matplotlib>=3.7.0
+h5py>=3.8.0
+onnx>=1.14.0
+onnxruntime>=1.18.0
+tqdm>=4.65.0

@@ -1,0 +1,63 @@
+{
+  "dataset_name": "NinaPro Database 8 (DB8)",
+  "dataset_version": "1.0",
+  "citation": "Krasoulis et al., 'A database of multi-channel surface electromyographic and hand kinematic signals of amputees and able-bodied individuals', Scientific Data, 2017 / NinaPro Consortium",
+  "source_url": "http://ninapro.hevs.ch/DB8",
+  "subject_id": 1,
+  "sampling_rate_hz": 2000,
+  "raw_sensors": {
+    "semg_channels": 16,
+    "cyberglove_channels": 18
+  },
+  "protocol": {
+    "movements": [
+      "rest",
+      "thumb_flexion",
+      "thumb_abduction",
+      "index_flexion",
+      "middle_flexion",
+      "ring_flexion",
+      "little_flexion",
+      "power_grasp",
+      "precision_pinch"
+    ],
+    "total_duration_s": 2572.7,
+    "total_samples": 5135095
+  },
+  "files": [
+    {
+      "file_name": "S1_E1_A1.mat",
+      "relative_path": "data/ninapro_db8/S1_E1_A1.mat",
+      "split_role": "training",
+      "size_bytes": 1001402376,
+      "sha256": "4f2355061b594baffb474350ce6ede5f852911a8871d547b1adb7cadcfa86d5f",
+      "duration_seconds": 1146.3,
+      "total_frames": 2292526,
+      "sliding_windows": 35817,
+      "normalization_fitted": true
+    },
+    {
+      "file_name": "S1_E1_A2.mat",
+      "relative_path": "data/ninapro_db8/S1_E1_A2.mat",
+      "split_role": "validation",
+      "size_bytes": 1016065584,
+      "sha256": "a431c57ecc6bc8f4689b66e96c2197a696201dfb475ed04794593b3820d6293e",
+      "duration_seconds": 1161.9,
+      "total_frames": 2313470,
+      "sliding_windows": 36144,
+      "normalization_fitted": false
+    },
+    {
+      "file_name": "S1_E1_A3.mat",
+      "relative_path": "data/ninapro_db8/S1_E1_A3.mat",
+      "split_role": "held_out_test",
+      "size_bytes": 232810568,
+      "sha256": "772d18763ba3a51e0ae50183b16238c90a92bbe4c6dff7d4745b259e33f515fe",
+      "duration_seconds": 264.5,
+      "total_frames": 529099,
+      "sliding_windows": 8264,
+      "normalization_fitted": false,
+      "strict_rule": "NEVER_USED_FOR_TUNING_OR_NORMALIZATION"
+    }
+  ]
+}
