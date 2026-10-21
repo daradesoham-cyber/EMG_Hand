@@ -11,6 +11,10 @@ An open-source **V1 research prototype** interfacing surface electromyography (s
 > [!IMPORTANT]
 > **Prototype Classification**: This repository represents a **V1 development / research prototype**. It is **NOT** a certified clinical prosthesis or medical device. It is intended for academic research, benchmarking, educational robotics, and human-machine interface (HMI) prototyping.
 
+
+> [!NOTE]
+> **V2 — new simulation:** the BiDexHand is now driven by the stronger **CNN-LSTM** model (8 gestures, 0.69 macro-F1 on unseen subjects) in a MuJoCo simulation with microcontroller firmware. See [`simulation/README.md`](simulation/README.md), [`firmware/`](firmware/) and the project report [`docs/report/REPORT.pdf`](docs/report/REPORT.pdf).
+
 ---
 
 ## Table of Contents

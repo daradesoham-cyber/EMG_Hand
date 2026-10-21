@@ -1,0 +1,201 @@
+{
+ "filter": "stable (debounce 4 x 50 ms)",
+ "recordings": [
+  {
+   "recording": "S23_session1_sequential.npz",
+   "subject": 23,
+   "session": 1,
+   "decisions": 5278,
+   "accuracy": 0.8177339901477833
+  },
+  {
+   "recording": "S23_session2_sequential.npz",
+   "subject": 23,
+   "session": 2,
+   "decisions": 5278,
+   "accuracy": 0.8984463812050019
+  },
+  {
+   "recording": "S30_session1_sequential.npz",
+   "subject": 30,
+   "session": 1,
+   "decisions": 5278,
+   "accuracy": 0.8355437665782494
+  },
+  {
+   "recording": "S30_session2_sequential.npz",
+   "subject": 30,
+   "session": 2,
+   "decisions": 5278,
+   "accuracy": 0.8289124668435013
+  },
+  {
+   "recording": "S31_session1_sequential.npz",
+   "subject": 31,
+   "session": 1,
+   "decisions": 5278,
+   "accuracy": 0.8635846911708981
+  },
+  {
+   "recording": "S31_session2_sequential.npz",
+   "subject": 31,
+   "session": 2,
+   "decisions": 5278,
+   "accuracy": 0.8073133762788935
+  },
+  {
+   "recording": "S34_session1_sequential.npz",
+   "subject": 34,
+   "session": 1,
+   "decisions": 5278,
+   "accuracy": 0.8273967411898446
+  },
+  {
+   "recording": "S34_session2_sequential.npz",
+   "subject": 34,
+   "session": 2,
+   "decisions": 5278,
+   "accuracy": 0.8772262220538083
+  }
+ ],
+ "decisions": 42224,
+ "accuracy": 0.8445197044334976,
+ "balanced_accuracy": 0.6578375780817012,
+ "macro_f1": 0.6914428719318993,
+ "per_class": {
+  "rest": {
+   "recall": 0.9530067283431455,
+   "precision": 0.8831839438815277,
+   "f1": 0.9167677993527508
+  },
+  "fist": {
+   "recall": 0.7457962413452027,
+   "precision": 0.5934671389216843,
+   "f1": 0.6609686609686609
+  },
+  "flexion": {
+   "recall": 0.8856259659969088,
+   "precision": 0.7950971322849214,
+   "f1": 0.8379234706312454
+  },
+  "extension": {
+   "recall": 0.7786561264822134,
+   "precision": 0.8819250139899273,
+   "f1": 0.8270795066911572
+  },
+  "pinch_index": {
+   "recall": 0.3228676085818943,
+   "precision": 0.8075916230366492,
+   "f1": 0.46130841121495325
+  },
+  "pinch_middle": {
+   "recall": 0.524442082890542,
+   "precision": 0.7273397199705232,
+   "f1": 0.6094473602963878
+  },
+  "pinch_ring": {
+   "recall": 0.5923469387755103,
+   "precision": 0.6906603212373588,
+   "f1": 0.6377368854710245
+  },
+  "pinch_little": {
+   "recall": 0.459958932238193,
+   "precision": 0.7859649122807018,
+   "f1": 0.5803108808290155
+  }
+ },
+ "inference_ms_mean": 0.4626043363015591,
+ "inference_ms_p99": 0.49847670004169226,
+ "confusion_matrix": [
+  [
+   27195,
+   224,
+   423,
+   195,
+   106,
+   130,
+   120,
+   143
+  ],
+  [
+   479,
+   1508,
+   0,
+   0,
+   0,
+   14,
+   10,
+   11
+  ],
+  [
+   219,
+   0,
+   1719,
+   0,
+   3,
+   0,
+   0,
+   0
+  ],
+  [
+   416,
+   0,
+   0,
+   1576,
+   32,
+   0,
+   0,
+   0
+  ],
+  [
+   1021,
+   5,
+   1,
+   16,
+   617,
+   226,
+   0,
+   25
+  ],
+  [
+   710,
+   175,
+   0,
+   0,
+   0,
+   987,
+   10,
+   0
+  ],
+  [
+   316,
+   418,
+   0,
+   0,
+   0,
+   0,
+   1161,
+   65
+  ],
+  [
+   436,
+   211,
+   19,
+   0,
+   6,
+   0,
+   380,
+   896
+  ]
+ ],
+ "class_names": [
+  "rest",
+  "fist",
+  "flexion",
+  "extension",
+  "pinch_index",
+  "pinch_middle",
+  "pinch_ring",
+  "pinch_little"
+ ]
+}

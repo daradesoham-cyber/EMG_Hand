@@ -1,0 +1,8 @@
+mujoco>=3.1
+onnxruntime>=1.17
+numpy
+scipy
+pillow
+matplotlib
+pyserial
+python-docx

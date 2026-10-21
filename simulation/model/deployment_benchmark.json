@@ -1,0 +1,105 @@
+{
+ "model": "cnn_lstm",
+ "window_samples": 307,
+ "params": 97544,
+ "MACs": 3706624,
+ "peak_activation_kB_fp32_upper": 105.78125,
+ "size_kB": {
+  "state_dict_fp32": 390.1357421875,
+  "torchscript": 408.0078125,
+  "onnx_fp32": 384.6982421875,
+  "onnx_int8": 107.26171875,
+  "weights_fp32_theoretical": 381.03125,
+  "weights_int8_theoretical": 95.2578125
+ },
+ "export_agreement": {
+  "onnx_fp32": {
+   "max_abs_prob_diff": 2.3245811462402344e-06,
+   "argmax_agreement": 1.0
+  },
+  "onnx_int8": {
+   "max_abs_prob_diff": 0.3942378759384155,
+   "argmax_agreement": 0.99609375
+  }
+ },
+ "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+ "latency": {
+  "torch_cpu_1thr": {
+   "mean_ms": 1.1602455635147635,
+   "p50_ms": 1.1539170009200461,
+   "p99_ms": 1.280351996247191
+  },
+  "onnx_fp32_cpu_1thr": {
+   "mean_ms": 0.5473632135059839,
+   "p50_ms": 0.5439730011858046,
+   "p99_ms": 0.5943549689982319
+  },
+  "onnx_int8_cpu_1thr": {
+   "mean_ms": 1.2218048600091909,
+   "p50_ms": 1.2194010014354717,
+   "p99_ms": 1.2833504242735216
+  },
+  "torch_cpu_4thr": {
+   "mean_ms": 0.899139380392929,
+   "p50_ms": 0.8952175012382213,
+   "p99_ms": 0.9983054449548944
+  },
+  "onnx_fp32_cpu_4thr": {
+   "mean_ms": 0.42421243342687376,
+   "p50_ms": 0.4251134996593464,
+   "p99_ms": 0.4694609984289855
+  },
+  "onnx_int8_cpu_4thr": {
+   "mean_ms": 1.0299698499390313,
+   "p50_ms": 1.0171230023843236,
+   "p99_ms": 1.7225276953831778
+  },
+  "torch_gpu_batch1": {
+   "mean_ms": 0.8494940833285606,
+   "p50_ms": 0.6205085010151379,
+   "p99_ms": 2.9001197417528597
+  },
+  "full_decision_filter+onnx_1thr": {
+   "mean_ms": 0.642037736591495,
+   "p50_ms": 0.6460020013037138,
+   "p99_ms": 0.7529760862234977
+  },
+  "filter_only_50ms_block": {
+   "mean_ms": 0.08997144335201786,
+   "p50_ms": 0.07814800119376741,
+   "p99_ms": 0.17014363256748763
+  }
+ },
+ "embedded_estimates": {
+  "raspberry_pi_4_cortexA72_1core": {
+   "est_inference_ms": 3.71,
+   "fits_step_budget": true,
+   "assumption": "~1 GMAC/s sustained for small fp32 convs (ORT/NEON)"
+  },
+  "raspberry_pi_5_cortexA76_1core": {
+   "est_inference_ms": 1.48,
+   "fits_step_budget": true,
+   "assumption": "~2.5 GMAC/s sustained"
+  },
+  "jetson_orin_nano_cpu_1core": {
+   "est_inference_ms": 1.85,
+   "fits_step_budget": true,
+   "assumption": "CPU path; GPU not needed at this size"
+  },
+  "esp32_s3_int8_esp-nn": {
+   "est_inference_ms": 74.13,
+   "fits_step_budget": false,
+   "assumption": "~50 MMAC/s effective int8 with ESP-NN SIMD (optimistic: 100+)"
+  },
+  "stm32h7_480MHz_int8_cmsis-nn": {
+   "est_inference_ms": 24.71,
+   "fits_step_budget": true,
+   "assumption": "~150 MMAC/s effective int8 CMSIS-NN"
+  }
+ },
+ "ram_estimate_kB": {
+  "ring_buffer_fp32": 28.78125,
+  "weights_int8": 95.2578125,
+  "activations_fp32_upper": 105.78125
+ }
+}

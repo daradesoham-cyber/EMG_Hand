@@ -32,3 +32,4 @@ data/raw/
 *.bak
 *.backup
 *~
+simulation/selftest/
